@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dasoju Tech</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
+
+      header {
+        background: linear-gradient(90deg, #ff7e5f, #feb47b);
+        color: white;
+        padding: 15px 20px;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      header nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      header nav a {
+        text-decoration: none;
+        color: white;
+        margin: 0 15px;
+        font-weight: bold;
+        font-size: 1.1rem;
+      }
+
+      header nav a:hover {
+        color: #333;
+        background: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        transition: 0.3s;
+      }
+
+      section {
+        padding: 50px 20px;
+        text-align: center;
+      }
+
+      #home {
+        background: linear-gradient(120deg, #00c6ff, #0072ff);
+        color: white;
+        height: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      #home h1 {
+        font-size: 3rem;
+        margin: 0 0 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+      }
+
+      #home p {
+        font-size: 1.2rem;
+        margin-top: 10px;
+      }
+
+      section#about {
+        background: beige;
+        color: #444;
+      }
+
+      section#services {
+        background: #e8f1f2;
+        color: #555;
+      }
+
+      section#contact {
+        background: gray;
+        color: #333;
+      }
+
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 20px;
+      }
+
+      .service {
+        background: white;
+        border: 2px solid #ddd;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .service:hover {
+        border-color: #ff7e5f;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+      }
+
+      footer {
+        background: #555;
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+        font-size: 0.9rem;
+      }
+
+      /* Sliding Switch Bar Styles */
+      .switch-bar {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        height: 100%;
+        width: 300px;
+        background: linear-gradient(90deg, #ff6a00, #ee0979);
+        box-shadow: -4px 0 10px rgba(0, 0, 0, 0.3);
+        color: white;
+        padding: 20px;
+        text-align: center;
+        transition: right 0.5s ease-in-out;
+        z-index: 1000;
+      }
+
+      .switch-bar h2 {
+        margin-top: 50px;
+        font-size: 1.8rem;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+      }
+
+      .switch-bar p {
+        margin-top: 20px;
+        font-size: 1.2rem;
+        line-height: 1.6;
+      }
+
+      .switch-bar button {
+        background-color: white;
+        color: #ff6a00;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-top: 30px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .switch-bar button:hover {
+        background-color: #ff6a00;
+        color: white;
+        transition: 0.3s;
+      }
+
+      .floating-button {
+        position: fixed;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        width: 50px;
+        height: 50px;
+        background-color: #feb47b;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        outline: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .floating-button:hover {
+        background-color: #ff7e5f;
+      }
+
+      .floating-button::after {
+        content: "+";
+        color: white;
+        font-size: 1.5rem;
+        font-weight: bold;
+        display: block;
+        text-align: center;
+        line-height: 50px;
+      }
+      .services {
+        text-align: center;
+        background-color: #f0f8ff; 
+        padding: 20px;
+      }
+
+      .service-card {
+        display: inline-block;
+        width: 500px;
+        height: 300px;
+        margin: 10px;
+        padding: 20px;
+        background-size: cover;
+        background-position: center;
+        color: grey;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: left;
+      }
+
+      .software-development {
+        background-image: url("https://news.ucsb.edu/sites/default/files/2023-11/SM_GIS_layers-NSF-cropped.jpg");
+      }
+
+      .drone-mapping {
+        background-image: url("https://www.varminect.com/wp-content/uploads/2023/10/BIM-and-GIS.webp");
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">Dasoju Tech</div>
+        <div class="menu">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <section id="home">
+      <h1>Dasoju Tech</h1>
+      <p>Your gateway to cutting-edge technology and services</p>
+    </section>
+
+    <section id="about">
+      <h2>About Us</h2>
+      <p>
+        We are a leading provider of innovative solutions, offering expertise in
+        software development, analytics, and cutting-edge technology services.
+      </p>
+    </section>
+
+    <section id="services">
+      <div class="services">
+        <h2>Our Services</h2>
+        <div class="service-card software-development">
+          <h3>Software Development</h3>
+          <p>Custom software solutions tailored to your needs.</p>
+        </div>
+        <div class="service-card drone-mapping">
+          <h3>Drone Mapping</h3>
+          <p>Advanced drone technology for accurate mapping.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>
+        We’d love to hear from you! Reach out to us at dasojutech@gmail.com or
+        call +19452744426.
+      </p>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 dasojutech. All Rights Reserved.</p>
+    </footer>
+
+    <div class="switch-bar" id="switchBar">
+      <h2>Welcome!</h2>
+      <p>Discover our innovative solutions designed just for you.</p>
+      <button onclick="closeSwitchBar()">Close</button>
+    </div>
+
+    <button class="floating-button" onclick="toggleSwitchBar()"></button>
+
+    <script>
+      function toggleSwitchBar() {
+        const switchBar = document.getElementById("switchBar");
+        if (switchBar.style.right === "0px") {
+          switchBar.style.right = "-300px";
+        } else {
+          switchBar.style.right = "0px";
+        }
+      }
+
+      function closeSwitchBar() {
+        document.getElementById("switchBar").style.right = "-300px";
+      }
+    </script>
+  </body>
+</html>
